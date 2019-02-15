@@ -1,6 +1,7 @@
-package code
+package services
 
 import javax.inject.Inject
+import models.Movie
 
 trait MovieFinder {
  def findAll():List[Movie]

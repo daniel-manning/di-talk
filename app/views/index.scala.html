@@ -1,0 +1,11 @@
+@import models.Movie
+
+@(movieList:List[Movie])
+
+@main("Welcome to Play") {
+  <ul>
+  @movieList.map { movie =>
+      <li>@{movie.title} - @{movie.year}</li>
+    }
+  </ul>
+}

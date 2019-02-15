@@ -1,6 +1,7 @@
 package fixtures
 
-import code.Movie
+import models.Movie
+import services.MovieFinder
 
 class LeoneFixture {
 
@@ -17,4 +18,8 @@ class LeoneFixture {
 
 
 
+}
+
+class TestLeoneMovieFinder extends MovieFinder {
+  override def findAll(): List[Movie] = new LeoneFixture().movieList
 }

@@ -1,9 +1,22 @@
-package code
+package services
 
+import models.Movie
 import org.scalatest.FlatSpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
+import play.api.Application
+import play.api.inject.guice.GuiceApplicationBuilder
+import play.api.inject.bind
+import fixtures.TestLeoneMovieFinder
 
 class FindDirectorSpec extends FlatSpec with GuiceOneAppPerSuite {
+
+
+
+  override implicit lazy val app: Application = GuiceApplicationBuilder()
+    .overrides(bind[MovieFinder].to(classOf[TestLeoneMovieFinder]))
+    //.configure(encryptionConfig)
+    .build()
+
 
      "MovieLister" should "be empty" in {
        val lister = app.injector.instanceOf[MovieLister]
