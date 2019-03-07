@@ -18,7 +18,7 @@ class FindDirectorSpec extends FlatSpec with GuiceOneAppPerSuite {
     .build()
 
 
-     "MovieLister" should "be empty" in {
+     "MovieLister" should "find films by a particular director" in {
        val lister = app.injector.instanceOf[MovieLister]
 
        val moviesOfLeone   = lister.moviesDirectedBy("Sergio Leone")
